@@ -24,7 +24,7 @@
 // v11. It moved at v10 for the KFGQPC V4 page fonts under /fonts/qcf-v4/, and
 // again here so a device that took any of the versions in between lets go of
 // them cleanly.
-const VERSION = 'v33';
+const VERSION = 'v34';
 const QURAN_CACHE = `quranic-data-${VERSION}`;
 const ASSET_CACHE = `quranic-assets-${VERSION}`;
 const PAGE_CACHE = `quranic-pages-${VERSION}`;
@@ -92,7 +92,16 @@ async function staleWhileRevalidate(request, cacheName) {
 async function networkFirst(request, cacheName) {
   const cache = await caches.open(cacheName);
   try {
-    const response = await fetch(request);
+    /*
+     * Revalidate rather than accept whatever the HTTP cache is holding.
+     *
+     * The host serves this page with `max-age=600`, and a page names the exact
+     * script files of the build it came from. Ten minutes after a deployment,
+     * a returning reader can therefore be handed a page that asks for files
+     * which no longer exist, and it renders as nothing at all. A conditional
+     * request costs one round trip and is answered 304 when nothing changed.
+     */
+    const response = await fetch(request, { cache: 'no-cache' });
     if (response.ok) cache.put(request, response.clone());
     return response;
   } catch (error) {

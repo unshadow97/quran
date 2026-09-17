@@ -1,0 +1,21 @@
+{
+  "name": "QuranicNextGen — Recitation Journal",
+  "short_name": "QuranicNextGen",
+  "description": "Read the Quran, record your recitation, and keep track of what you have read.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#faf8f4",
+  "theme_color": "#0f7a63",
+  "categories": ["education", "lifestyle"],
+  "icons": [
+    { "src": "./icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Start reciting", "short_name": "Recite", "url": "./quran" },
+    { "name": "Continue reading", "short_name": "Quran", "url": "./quran" }
+  ]
+}

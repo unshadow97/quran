@@ -18,7 +18,7 @@ export type Dtype = NonNullable<Parameters<typeof pipeline>[2]>['dtype'];
 
 export type WorkerRequest =
   | { kind: 'load'; model: string; dtype: Dtype }
-  | { kind: 'transcribe'; id: number; audio: Float32Array; language: string };
+  | { kind: 'transcribe'; id: number; audio: Float32Array; language: string | null };
 
 export type WorkerResponse =
   | { kind: 'progress'; file: string; loaded: number; total: number }
@@ -88,8 +88,17 @@ self.addEventListener('message', (event: MessageEvent<WorkerRequest>) => {
         if (!recogniser) throw new Error('The recogniser is not loaded yet.');
 
         const output = await recogniser(request.audio, {
-          language: request.language,
-          task: 'transcribe',
+          /*
+           * Omitted entirely for a model that only speaks one language.
+           *
+           * Whisper fine-tuned on a single language is exported without the
+           * multilingual head, and transformers.js then *throws* rather than
+           * ignoring the option: "Cannot specify `task` or `language`". The
+           * Quran model is one of those, so passing Arabic to it would fail
+           * every transcription in the app — found by running it, not by
+           * reading about it.
+           */
+          ...(request.language ? { language: request.language, task: 'transcribe' as const } : {}),
           /*
            * Segment timestamps, not word ones.
            *

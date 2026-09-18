@@ -58,7 +58,10 @@ text itself is here under.
 
 | | |
 |---|---|
-| Model | OpenAI Whisper, in the ONNX conversions published by `onnx-community` |
+| Model | Tarteel AI's `whisper-base-ar-quran` — OpenAI Whisper fine-tuned on Quranic recitation — by default, with general Whisper still offered |
+| Licence | Apache-2.0 (Tarteel's weights); Whisper itself is MIT |
+| ONNX build | `eventhorizon0/tarteel-ai-onnx-whisper-base-ar-quran`, a community conversion of Tarteel's weights to the build a browser can run. Not Tarteel's own upload, which is why the general models remain selectable |
+| General models | OpenAI Whisper in the ONNX conversions published by `onnx-community` |
 | Runtime | Transformers.js (Hugging Face) |
 | Note | Downloaded by the reader's browser only when they ask for it, and run there. Nothing is uploaded |
 

@@ -1,5 +1,5 @@
-:HL["/quran/_next/static/chunks/0x3r6i91gui8e.css","style"]
+:HL["/quran/_next/static/chunks/1jott335za06t.css","style"]
 :HL["/quran/_next/static/media/318e7a4ab76bee79-s.p.1tl90lbozpx_2.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/quran/_next/static/media/83afe278b6a6bb3c-s.p.2bn3s6zvc0dyp.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/quran/icons/icon-192.png","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"progress","param":null,"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}},"staleTime":300,"buildId":"4AFEKy0SwOvEpdVWrISjX"}
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"progress","param":null,"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}},"staleTime":300,"buildId":"YAEIqMuQx16sowfJd5WQ4"}
